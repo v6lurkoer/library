@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --green-blue: #099197;
+}
+
+div {
+/*  border: 1px solid red;*/
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 50px 3fr;
+
+  background-color: var(--green-blue);
+}
+
+#containerLeft {
+  display: flex;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 50px;
+}
+
+#buttons button {
+  flex: 1;
+
+  background-color: transparent;
+  border: none;
+}
+
+#buttons button:hover {
+  background-color: oklch(from var(--green-blue) none none none / 0.2);
+  cursor: pointer;
+}
+
+#formSection {
+  display: none;
+}
+
+#containerRight {
+  padding: 0 10px 0 10px;
+}
+
+table {
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th:first-child,
+th:nth-child(4),
+th:nth-child(5),
+th:nth-child(6) {
+  width: fit-content;
+}
+
+th {
+  width: 25%;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: grey;
+}
+
+tr {
+  height: 2lh;
+}
