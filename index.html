@@ -8,37 +8,40 @@
   </head>
   <body>
     <div id="containerLeft">
-      <div id="buttons">
+      <div class="entrySection">
         <button id="addBookButton">Add book</button>
-        <button>Edit book</button>
+        <div id="formSection">
+          <form id="bookForm" action="" method="get">
+            <fieldset>
+              <label for="title">Title</label>
+              <input id="title" type="text" name="title"/>
+            </fieldset>
+            <fieldset>
+              <label for="author">Author</label>
+              <input id="author" type="text" name="author"/>
+            </fieldset>
+            <fieldset>
+              <label for="pages">Number of pages</label>
+              <input id="pages" type="number" name="pages" min="0"/>
+            </fieldset>
+            <fieldset id="radio">
+              <legend>Have you read the book?</legend>
+              <label><input id="isRead" type="radio" name="read" value="yes" required /> Yes</label>
+              <label><input id="isntRead" type="radio" name="read" value="no" required checked /> No</label>
+            </fieldset>
+          </form>
+          <div id="submitButtonContainer">
+            <button id="submitButton" onclick="submit()">Submit</button>
+          </div>
+        </div>
       </div>
-      <div id="formSection">
-        <form id="bookForm" action="" method="get">
-          <fieldset>
-            <label for="title">Title</label>
-            <input id="title" type="text" name="title" required/>
-          </fieldset>
-          <fieldset>
-            <label for="author">Author</label>
-            <input id="author" type="text" name="author" required/>
-          </fieldset>
-          <fieldset>
-            <label for="pages">Number of pages</label>
-            <input id="pages" type="number" name="pages" min="0" required/>
-          </fieldset>
-          <fieldset>
-            <legend>Have you read the book?</legend>
-            <label><input id="isRead" type="radio" name="read" value="yes" required /> Yes</label>
-            <label><input id="isntRead" type="radio" name="read" value="no" required checked /> No</label>
-          </fieldset>
-        </form>
-        <button popovertarget="newBookDialog" popovertargetaction="hide">Close</button>
-        <button onclick="submit()">Submit</button>
+      <div class="entrySection">
+        <button>Edit book</button>
       </div>
     </div>
     <div id="containerRight">
+      <h1>Your books</h1>
       <table>
-        <caption>Your list of books</caption>
         <thead>
           <tr id="idForColumnCount">
             <th scope="col">No</th>

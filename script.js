@@ -12,6 +12,7 @@ function createBook(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
   addBookToTable(book);
+  console.log("now we here");
 }
 
 function addBookToTable(book) {
@@ -58,16 +59,24 @@ function submit() {
 
 const btn = document.getElementById("addBookButton");
 let expanded = 0;
+
 btn.addEventListener("click", (e) => {
   const body = document.querySelector("body");
+  const entry = document.querySelector(".entrySection");
   const form = document.getElementById("formSection");
+
   if (expanded === 0) {
-    body.style.gridTemplateColumns = "1fr 3fr";
-    form.style.display = "block";
+    entry.style.backgroundColor = "oklch(from var(--green-blue) none none none / 0.1)"
+    form.style.display = "flex";
+    form.style.flexDirection = "column";
+    form.style.justifyContent = "center";
+    // form.style.alignItems = "center";
     expanded = 1;
   } else if (expanded === 1) {
-    body.style.gridTemplateColumns = "50px 3fr";
+    entry.style.backgroundColor = "transparent"
     form.style.display = "none";
+    form.style.flexDirection = "";
+    form.style.justifyContent = "";
     expanded = 0;
   }
 });
