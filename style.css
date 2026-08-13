@@ -127,6 +127,8 @@ th, td {
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: 0 5px 0 5px;
+
+  text-align: center;
 }
 
 th {
