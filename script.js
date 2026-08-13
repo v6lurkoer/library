@@ -12,7 +12,6 @@ function createBook(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
   addBookToTable(book);
-  console.log("now we here");
 }
 
 function addBookToTable(book) {
@@ -44,6 +43,7 @@ function addBookToTable(book) {
         break;
       case 6:
         const deleteButton = document.createElement("button");
+        deleteButton.classList.add("deleteButton");
         deleteButton.innerHTML = "DELETE";
         cell.appendChild(deleteButton);
         break;
@@ -66,10 +66,10 @@ function createDeleteButton() {
 
 }
 
-const btn = document.getElementById("addBookButton");
+const addBookButton = document.getElementById("addBookButton");
 let expanded = 0;
 
-btn.addEventListener("click", (e) => {
+addBookButton.addEventListener("click", (e) => {
   const body = document.querySelector("body");
   const entry = document.querySelector(".entrySection");
   const form = document.getElementById("formSection");
@@ -84,5 +84,19 @@ btn.addEventListener("click", (e) => {
     form.style.flexDirection = "";
     form.style.justifyContent = "";
     expanded = 0;
+  }
+});
+
+const deleteAllButton = document.getElementById("deleteAllButton");
+
+deleteAllButton.addEventListener("click", (e) => {
+  const table = document.querySelector("table");
+  const rows = document.querySelectorAll("tr")
+
+  console.log(rows.length);
+  for (let i = rows.length - 1; i > 0; i--) {
+    console.log(table.rows[i]);
+    table.deleteRow(i);
+    myLibrary.pop(i);
   }
 });
