@@ -9,7 +9,8 @@
   --green-blue: #099197;
   --light-glaucous-blue: #a5c8d1;
   --ivory-buff: #ebd3a2;
-  --helvetia-blue: #005b8d;
+  --antwarp-blue: #007190;
+  --delete-red: #970F09;
 }
 
 body,
@@ -156,8 +157,25 @@ td button {
   padding: 5px;
 }
 
+#deleteAllButton,
+.deleteButton {
+  background-color: transparent;
+  font-weight: bold;
+}
+
+#deleteAllButton:hover,
+body:has(#deleteAllButton:hover) .deleteButton {
+  background-color: var(--delete-red);
+  border: none;
+}
+
+.deleteButton:hover {
+  background-color: var(--delete-red);
+  border: none;
+}
+
 tbody tr:nth-child(odd) {
-  background-color: var(--helvetia-blue);
+  background-color: var(--antwarp-blue);
 }
 
 tbody tr:nth-child(even) {
