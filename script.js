@@ -66,14 +66,11 @@ btn.addEventListener("click", (e) => {
   const form = document.getElementById("formSection");
 
   if (expanded === 0) {
-    entry.style.backgroundColor = "oklch(from var(--green-blue) none none none / 0.1)"
     form.style.display = "flex";
     form.style.flexDirection = "column";
     form.style.justifyContent = "center";
-    // form.style.alignItems = "center";
     expanded = 1;
   } else if (expanded === 1) {
-    entry.style.backgroundColor = "transparent"
     form.style.display = "none";
     form.style.flexDirection = "";
     form.style.justifyContent = "";
