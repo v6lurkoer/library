@@ -38,12 +38,7 @@ body {
 }
 
 button {
-  flex-shrink: 0;
-
   font-family: "Arial", "sans-serif", "system-ui";
-  border: none;
-  height: 100%;
-  width: 50px;
   background-color: var(--green-blue);
   border: 1px solid var(--light-glaucous-blue);
 }
@@ -55,10 +50,13 @@ button:hover {
 }
 
 #addBookButton {
+  flex-shrink: 0;
+
   writing-mode: vertical-rl;
   text-orientation: upright;
   letter-spacing: 0.2rem;
   font-size: 2rem;
+  width: 50px;
 }
 
 #formSection {
@@ -135,6 +133,27 @@ th {
   background-color: var(--green-blue);
 }
 
+th:first-child {
+  width: 4ch;
+}
+
+th:nth-child(4) {
+  width: 6ch;
+}
+
+th:nth-child(5) {
+  width: 6ch;
+}
+
+th:nth-child(7) {
+  width: 8ch;
+}
+
+th button,
+td button {
+  padding: 5px;
+}
+
 tbody tr:nth-child(odd) {
   background-color: var(--helvetia-blue);
 }
@@ -146,4 +165,3 @@ tbody tr:nth-child(even) {
 tr {
   height: 2lh;
 }
-

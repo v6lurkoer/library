@@ -42,6 +42,11 @@ function addBookToTable(book) {
       case 5:
         cell.innerHTML = myLibrary[myLibrary.length - 1].id;
         break;
+      case 6:
+        const deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "DELETE";
+        cell.appendChild(deleteButton);
+        break;
     }
   }
 }
@@ -55,6 +60,10 @@ function submit() {
   createBook(title, author, pages, read);
 
   document.getElementById("bookForm").reset();
+}
+
+function createDeleteButton() {
+
 }
 
 const btn = document.getElementById("addBookButton");
