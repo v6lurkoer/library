@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -24,24 +24,21 @@ function addBookToTable(book) {
     const cell = row.insertCell(i);
     switch (i) {
       case 0:
-        cell.innerHTML = myLibrary.length;
-        break;
-      case 1:
         cell.innerHTML = myLibrary[myLibrary.length - 1].title;
         break;
-      case 2:
+      case 1:
         cell.innerHTML = myLibrary[myLibrary.length - 1].author;
         break;
-      case 3:
+      case 2:
         cell.innerHTML = myLibrary[myLibrary.length - 1].pages;
         break;
-      case 4:
+      case 3:
         cell.innerHTML = myLibrary[myLibrary.length - 1].read;
         break;
-      case 5:
+      case 4:
         cell.innerHTML = myLibrary[myLibrary.length - 1].id;
         break;
-      case 6:
+      case 5:
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("deleteButton");
         deleteButton.innerHTML = "DELETE";
@@ -56,47 +53,45 @@ function submit() {
   const author = document.getElementById("author").value;
   const pages = document.getElementById("pages").value;
   const read = document.querySelector("input[name=read]:checked").value;
-
   createBook(title, author, pages, read);
-
   document.getElementById("bookForm").reset();
 }
 
-function createDeleteButton() {
-
-}
-
 const addBookButton = document.getElementById("addBookButton");
-let expanded = 0;
-
+let expanded = false;
 addBookButton.addEventListener("click", (e) => {
-  const body = document.querySelector("body");
-  const entry = document.querySelector(".entrySection");
   const form = document.getElementById("formSection");
 
-  if (expanded === 0) {
+  if (!expanded) {
     form.style.display = "flex";
     form.style.flexDirection = "column";
     form.style.justifyContent = "center";
-    expanded = 1;
-  } else if (expanded === 1) {
+    expanded = true;
+  } else if (expanded) {
     form.style.display = "none";
     form.style.flexDirection = "";
     form.style.justifyContent = "";
-    expanded = 0;
+    expanded = false;
   }
 });
 
+const table = document.querySelector("table");
 const deleteAllButton = document.getElementById("deleteAllButton");
 
 deleteAllButton.addEventListener("click", (e) => {
-  const table = document.querySelector("table");
-  const rows = document.querySelectorAll("tr")
-
-  console.log(rows.length);
+  const rows = document.querySelectorAll("tr");
   for (let i = rows.length - 1; i > 0; i--) {
-    console.log(table.rows[i]);
     table.deleteRow(i);
     myLibrary.pop(i);
+  }
+});
+
+table.addEventListener("click", (e) => {
+  if (e.target.classList.contains("deleteButton")) {
+    const bookId = e.target.parentNode.parentNode.lastChild.previousSibling.textContent;
+
+    myLibrary = myLibrary.filter((book) => book.id !== bookId);
+
+    e.target.parentNode.parentNode.remove();
   }
 });
