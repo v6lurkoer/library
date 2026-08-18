@@ -10,6 +10,7 @@
   --light-glaucous-blue: #a5c8d1;
   --ivory-buff: #ebd3a2;
   --antwarp-blue: #007190;
+  --calamine-blue: #78cdd0;
   --delete-red: #970F09;
 }
 
@@ -41,12 +42,13 @@ body {
 button {
   font-family: "Arial", "sans-serif", "system-ui";
   background-color: var(--green-blue);
-  border: 1px solid var(--light-glaucous-blue);
+  border: 1px solid var(--antwarp-blue);
 }
 
 button:hover {
   cursor: pointer;
-  background-color: var(--light-glaucous-blue);
+  background-color: var(--antwarp-blue);
+  color: var(--light-glaucous-blue);
   border: none;
 }
 
@@ -101,16 +103,19 @@ input {
 #submitButton {
   height: 2lh;
   width: 100%;
+  font-size: 2ch;
 }
 
 #containerRight {
   padding: 0 10px 0 10px;
-  background-color: var(--light-glaucous-blue);
+  background-color: var(--antwarp-blue);
   overflow: scroll;
 }
 
 h1 {
   text-align: center;
+  color: var(--light-glaucous-blue);
+  padding: 10px 0 10px 0;
 }
 
 table {
@@ -119,7 +124,7 @@ table {
 }
 
 table, th, td {
-  border: 1px solid var(--light-glaucous-blue);
+  border: 1px solid var(--antwarp-blue);
   border-collapse: collapse;
 }
 
@@ -147,6 +152,11 @@ td button {
   padding: 5px;
 }
 
+.statusButton {
+  width: 9ch;
+  background-color: transparent;
+}
+
 #deleteAllButton,
 .deleteButton {
   background-color: transparent;
@@ -165,7 +175,7 @@ body:has(#deleteAllButton:hover) .deleteButton {
 }
 
 tbody tr:nth-child(odd) {
-  background-color: var(--antwarp-blue);
+  background-color: var(--calamine-blue);
 }
 
 tbody tr:nth-child(even) {
