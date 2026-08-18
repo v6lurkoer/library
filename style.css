@@ -191,3 +191,16 @@ tbody tr:nth-child(even) {
 tr {
   height: 2lh;
 }
+
+a {
+  color: black;
+  padding: 5px;
+  border: 1px solid var(--antwarp-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--ivory-buff);
+  background-color: var(--antwarp-blue);
+  border: 1px solid var(--ivory-buff);
+}

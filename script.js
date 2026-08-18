@@ -36,11 +36,29 @@ function addBookToTable(book) {
     const cell = row.insertCell(i);
     switch (i) {
       case 0: {
-        const textValue = document.createTextNode(myLibrary[myLibrary.length - 1].title);
-        cell.appendChild(textValue);
-        break;
+        if (myLibrary.length === 1) {
+          const title = "The Odin Project"
+          const a = document.createElement("a");
+          a.href = "https://www.theodinproject.com";
+          a.target = "_blank";
+          a.textContent = title;
+          cell.appendChild(a);
+          break;
+        } else {
+          const textValue = document.createTextNode(myLibrary[myLibrary.length - 1].title);
+          cell.appendChild(textValue);
+          break;
+        }
       }
       case 1: {
+        if (myLibrary.length === 1) {
+          const author = "v6lurkoer";
+          const a = document.createElement("a");
+          a.href = "https://www.github.com/v6lurkoer";
+          a.target = "_blank";
+          a.textContent = author;
+          cell.appendChild(a);
+        }
         const textValue = document.createTextNode(myLibrary[myLibrary.length - 1].author);
         cell.appendChild(textValue);
         break;
