@@ -8,7 +8,7 @@ function Book(title, author, pages, readStatus) {
   this.id = crypto.randomUUID();
 }
 
-const readStatuses = ["Read", "Reading", "Not read"];
+const readStatuses = ["Read", "Not read", "Reading"];
 Book.prototype.toggleRead = function() {
   if (this.readStatus === readStatuses[0]) {
     this.readStatus = readStatuses[1];
