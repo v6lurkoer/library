@@ -48,8 +48,8 @@ button {
 button:hover {
   cursor: pointer;
   background-color: var(--antwarp-blue);
-  color: var(--light-glaucous-blue);
-  border: none;
+  color: var(--ivory-buff);
+  border: 1px solid var(--ivory-buff);
 }
 
 #addBookButton {
@@ -58,8 +58,8 @@ button:hover {
   writing-mode: vertical-rl;
   text-orientation: upright;
   letter-spacing: 0.2rem;
-  font-size: 2rem;
-  width: 50px;;
+  font-size: 6rem;
+  width: 100%;
 }
 
 #formSection {
@@ -121,11 +121,17 @@ h1 {
 table {
   width: 100%;
   table-layout: fixed;
+  border: 1px solid var(--antwarp-blue);
+  border-collapse: separate;
 }
 
-table, th, td {
-  border: 1px solid var(--antwarp-blue);
-  border-collapse: collapse;
+#tableHeaderRow {
+  position: sticky;
+  top: 0px;
+}
+
+table tr:hover td {
+  border: 1px solid var(--ivory-buff);
 }
 
 th, td {

@@ -1,9 +1,4 @@
-const readStatuses = ["Read", "Reading", "Not read"];
-const addBookButton = document.getElementById("addBookButton");
-const deleteAllButton = document.getElementById("deleteAllButton");
-const table = document.querySelector("table");
 let myLibrary = [];
-let expanded = false;
 
 function Book(title, author, pages, readStatus) {
   this.title = title;
@@ -13,6 +8,7 @@ function Book(title, author, pages, readStatus) {
   this.id = crypto.randomUUID();
 }
 
+const readStatuses = ["Read", "Reading", "Not read"];
 Book.prototype.toggleRead = function() {
   if (this.readStatus === readStatuses[0]) {
     this.readStatus = readStatuses[1];
@@ -33,7 +29,7 @@ function createBook(title, author, pages, readStatus) {
 function addBookToTable(book) {
   const tableBody = document.querySelector("tbody");
   const row = tableBody.insertRow(-1);
-  const headerRow = document.getElementById("idForColumnCount");
+  const headerRow = document.getElementById("tableHeaderRow");
   const columns = headerRow.querySelectorAll("th");
 
   for (i = 0; i < columns.length; i++) {
@@ -88,14 +84,21 @@ function submit() {
   document.getElementById("bookForm").reset();
 }
 
-function expandBookFormPanel() {
+let expanded = false;
+function resizeBookFormPanel() {
   const form = document.getElementById("formSection");
   if (!expanded) {
+    addBookButton.style.width = "50px";
+    addBookButton.style.fontSize = "2rem";
+    addBookButton.textContent = "CLOSE";
     form.style.display = "flex";
     form.style.flexDirection = "column";
     form.style.justifyContent = "center";
     expanded = true;
   } else if (expanded) {
+    addBookButton.style.width = "100%";
+    addBookButton.style.fontSize = "6rem";
+    addBookButton.textContent = "ADD BOOK";
     form.style.display = "none";
     form.style.flexDirection = "";
     form.style.justifyContent = "";
@@ -126,15 +129,18 @@ function deleteBookFromTable(e) {
   e.target.parentNode.parentNode.remove();
 }
 
+const addBookButton = document.getElementById("addBookButton");
 addBookButton.addEventListener("click", (e) => {
-  expandBookFormPanel();
+  resizeBookFormPanel();
 });
 
+const deleteAllButton = document.getElementById("deleteAllButton");
 deleteAllButton.addEventListener("click", (e) => {
   deleteAllBooksFromArray();
   deleteAllBooksFromTable();
 });
 
+const table = document.querySelector("table");
 table.addEventListener("click", (e) => {
   if (e.target.classList.contains("deleteButton")) {
     deleteBookFromArray(e);
