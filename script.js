@@ -1,23 +1,24 @@
 let myLibrary = [];
-
-function Book(title, author, pages, readStatus) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.readStatus = readStatus;
-  this.id = crypto.randomUUID();
-}
-
 const readStatuses = ["Read", "Not read", "Reading"];
-Book.prototype.toggleRead = function() {
-  if (this.readStatus === readStatuses[0]) {
-    this.readStatus = readStatuses[1];
-  } else if (this.readStatus === readStatuses[1]) {
-    this.readStatus = readStatuses[2];
-  } else if (this.readStatus === readStatuses[2]) {
-    this.readStatus = readStatuses[0];
+
+class Book {
+  constructor(title, author, pages, readStatus) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readStatus = readStatus;
+    this.id = crypto.randomUUID();
+    this.toggleRead = function() {
+      if (this.readStatus === readStatuses[0]) {
+        this.readStatus = readStatuses[1];
+      } else if (this.readStatus === readStatuses[1]) {
+        this.readStatus = readStatuses[2];
+      } else if (this.readStatus === readStatuses[2]) {
+        this.readStatus = readStatuses[0];
+      }
+      return this.readStatus;
+    }
   }
-  return this.readStatus;
 }
 
 function createBook(title, author, pages, readStatus) {
@@ -58,6 +59,7 @@ function addBookToTable(book) {
           a.target = "_blank";
           a.textContent = author;
           cell.appendChild(a);
+          break;
         }
         const textValue = document.createTextNode(myLibrary[myLibrary.length - 1].author);
         cell.appendChild(textValue);
